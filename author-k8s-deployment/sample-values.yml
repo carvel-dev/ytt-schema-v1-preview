@@ -1,0 +1,7 @@
+---
+jwt:
+  policy:
+    activeKeyId: "default_jwt_signing_key"
+    keys:
+      default_jwt_signing_key:
+        signingKey: jwt_policy_signing_key
