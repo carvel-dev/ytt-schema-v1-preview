@@ -51,7 +51,7 @@ Create a Schema for the data values of this configuration:
 
 1. Add a file `config/schema.yml`
 2. In that file, write a schema for the data values `config/secret.yml` expects. The schema should:
-    - check for the presence of these data values (and fails if not provided):
+    - declares the following Data Values (and fails if not provided):
         - `jwt`
         - `jwt.policy`
         - `jwt.policy.activeKeyId`
