@@ -1,0 +1,23 @@
+#@data/values-schema
+---
+system_namespace: cf-system
+app_domains: [""]
+
+replica_count: 1
+
+blobstore:
+  #! example: AKIAIOSFODNN7EXAMPLE
+  access_key_id: ""
+  endpoint: http://blobstore-minio.default:9000
+  resource_directory_key: resources
+  #@schema/type any=True
+  fog_aws_storage_options: {}
+
+cc:
+  #! debug, info, warning, error
+  log_level: info
+
+#@schema/nullable
+honeycomb:
+  write_key: "WRONG_KEY"
+  dataset: "non-existent-dataset"

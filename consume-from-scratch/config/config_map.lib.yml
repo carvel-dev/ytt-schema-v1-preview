@@ -1,0 +1,21 @@
+#@ load("@ytt:data","data")
+
+#@ def/end config_map():
+---
+app_domains: #@ data.values.app_domains
+
+resource_pool:
+  resource_directory_key: #@ data.values.blobstore.resource_directory_key
+  blobstore_type: fog
+  fog_connection:
+    provider: AWS
+    endpoint: #@ data.values.blobstore.endpoint
+    aws_access_key_id: #@ data.values.blobstore.access_key_id
+    path_style: true
+
+  fog_aws_storage_options: #@ data.values.blobstore.fog_aws_storage_options
+
+#@ if/end data.values.honeycomb:
+honeycomb:
+  write_key: #@ data.values.honeycomb.write_key
+  dataset: #@ data.values.honeycomb.dataset

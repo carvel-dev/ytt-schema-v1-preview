@@ -1,0 +1,45 @@
+#@ load("@ytt:data", "data")
+#@ load("@ytt:template", "template")
+#@ load("volumes.lib.yml", "shared_config_volumes", "shared_config_volume_mounts")
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: api-server
+  namespace: #@ data.values.system_namespace
+spec:
+  replicas: #@ data.values.replica_count
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: api-server
+  template:
+    metadata:
+      labels:
+        app: api-server
+        app.kubernetes.io/name: api-server
+    spec:
+      containers:
+      - name: api-server
+        image: #@ data.values.images.server
+        command: [ "/cnb/process/web" ]
+        volumeMounts:
+        - #@ template.replace(shared_config_volume_mounts())
+      - name: local-worker
+        image: #@ data.values.images.server
+        command: [ "/cnb/process/local-worker" ]
+        volumeMounts:
+        - #@ template.replace(shared_config_volume_mounts())
+      - name: nginx
+        image: #@ data.values.images.nginx
+        ports:
+        - containerPort: 80
+        - containerPort: 9023
+        readinessProbe:
+          httpGet:
+            port: 80
+            path: "/healthz"
+        volumeMounts:
+        - #@ template.replace(shared_config_volume_mounts())
+      volumes:
+        - #@ template.replace(shared_config_volumes())

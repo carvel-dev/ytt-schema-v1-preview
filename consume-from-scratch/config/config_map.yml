@@ -1,0 +1,11 @@
+#@ load("@ytt:data","data")
+#@ load("@ytt:yaml","yaml")
+#@ load("config_map.lib.yml","config_map")
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: controller-yaml
+  namespace: #@ data.values.system_namespace
+data:
+  controller.yml: #@ yaml.encode(config_map())

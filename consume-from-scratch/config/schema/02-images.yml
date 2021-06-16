@@ -1,0 +1,6 @@
+#@data/values-schema
+#@overlay/match-child-defaults missing_ok=True
+---
+images:
+  server: platform/server@sha256:db56dd914daf2acf6feff43b83711b33728419c2d37db11ca25261e21e9beee7
+  nginx: platform/nginx@sha256:67ad232b390a100a3c9e9b36ee1c6443843185e6df78f3fba57f9a708808b6da

@@ -1,0 +1,11 @@
+#@ def shared_config_volumes():
+- name: controller-yaml
+  configMap:
+    name: controller-yaml
+#@ end
+
+#@ def shared_config_volume_mounts():
+- name: controller-yaml
+  mountPath: /config/controller.yml
+  subPath: controller.yml
+#@ end
