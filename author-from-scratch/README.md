@@ -22,4 +22,55 @@ Externalize these values (declaring the Data Values in schema):
 
 - `replicas` to be of type `int`
 - `ports` -- a list of port assignments. 
-  - each assignment has two keys: `name` (`string`), and `port` (`int`, default: 80)
+  - each assignment has two keys: 
+    - `name` (`string`) — the name of the container who's port you're specifying, and
+    - `port` (`int`, default: 80) — the port on which that container will listen.
+  
+If someone runs your template through `ytt` with a corresponding data values file,
+
+`values.yml`
+```yaml
+#@data/values
+---
+replicas: true
+ports:
+- name: front-end
+  port: "8080"
+- name: rss-reader
+  port: "8088"
+```
+
+```console
+$ ytt -f config/ --data-values-file values.yml
+```
+
+They will (after fixing a few errors) find their way to:
+
+```yaml
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rss-site
+  labels:
+    app: web
+spec:
+  replicas: 10
+  selector:
+    matchLabels:
+      app: web
+  template:
+    metadata:
+      labels:
+        app: web
+    spec:
+      containers:
+      - name: front-end
+        image: nginx
+        ports:
+        - containerPort: 8080
+      - name: rss-reader
+        image: nickchase/rss-php-nginx:v1
+        ports:
+        - containerPort: 8088
+```
