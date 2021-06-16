@@ -33,3 +33,7 @@ A few steps to take before we get going...
 
 - **whatever occurs to you _is_ what we're most interested in** -- you are not being tested.
 - **think out loud** -- your words don't have to make sense to anyone but you...
+
+---
+
+With that all set, let's head to our [first task](app-to-deploy/README.md).
