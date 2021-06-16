@@ -12,8 +12,7 @@ Thank you for your help!
 
 A few steps to take before we get going...
 
-1. Make sure you've installed the latest version of `ytt` \
-   https://github.com/vmware-tanzu/carvel-ytt/releases
+1. Make sure you've installed the latest version of `ytt`: https://github.com/vmware-tanzu/carvel-ytt/releases
 
 2. Either clone or download a copy of this repository to your machine:
    ```console
