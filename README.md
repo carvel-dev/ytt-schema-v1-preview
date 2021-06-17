@@ -12,7 +12,13 @@ Thank you for your help!
 
 A few steps to take before we get going...
 
-1. Make sure you've installed the latest version of `ytt`: https://github.com/vmware-tanzu/carvel-ytt/releases
+1. Obtain a copy of `ytt` built for this session (your guide will provide this for you).
+
+2. Ensure that this copy of `ytt` is on your path (it's 0.35.0-preview)
+   ```console
+   $ ytt version
+   ytt version 0.35.0-preview
+   ```
 
 2. Either clone or download a copy of this repository to your machine:
    ```console
@@ -20,13 +26,9 @@ A few steps to take before we get going...
    cd ytt-schema-v1-preview 
    ```
    
-3. Let's enable the schema features by default using an alias.
+3. Let's verify that your copy of `ytt` is working:
    ```console
-   alias ytts='ytt --enable-experiment-schema'  
-   ```
-   and verify it's working...
-   ```console
-   ytts -f app-to-deploy/config
+   ytt -f app-to-deploy/config
    ```
 
 ## Housekeeping

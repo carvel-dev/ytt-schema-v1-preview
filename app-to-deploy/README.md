@@ -13,8 +13,8 @@ Before you _actually_ deploy it, you'd like to render the configuration and be c
 The configuration is found in the `app-to-deploy` directory:
 
 ```console
-cd app-to-deploy
-tree
+$ cd app-to-deploy
+$ tree config
 ```
 
 This configuration is apparently using the new `ytt` schema features. You've been pointed to the `ytt` documentation: https://carvel.dev/ytt/docs/latest/ytt-schema
@@ -40,7 +40,7 @@ The documentation for this application explains:
 > ```
 > running this...
 > ```console
-> ytts -f config/ --data-values-file values.yml
+> $ ytt -f config/ --data-values-file values.yml
 > ```
 > 
 > will render the customized configuration, setting the number of instances of the API server to 2.

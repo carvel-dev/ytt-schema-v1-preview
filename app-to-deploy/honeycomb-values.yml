@@ -1,0 +1,4 @@
+---
+honeycombx:
+  dataet: my-dataset
+  writekey: MY_WRITE_KEY

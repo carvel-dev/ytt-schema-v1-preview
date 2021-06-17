@@ -15,14 +15,17 @@ The relevant section in the documentation includes this:
 > **Configuring Honeycomb**
 >
 > For debugging, it may be useful to emit events to Honeycomb. This can be enabled by
-> passing an additional data file to the `ytt` command.
+> passing an additional data values file to the `ytt` command.
 >
+> `honeycomb-values.yml`
 > ```
-> #@data/values
 > ---
 > honeycomb:
 >   dataet: my-dataset
 >   writekey: MY_WRITE_KEY
 > ```
 >
+> ```console
+> $ ytt -f config/ --data-values-file values.yml --data-values-file honeycomb-values.yml
+> ```
 > ...
