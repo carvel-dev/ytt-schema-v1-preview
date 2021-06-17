@@ -12,7 +12,7 @@ Thank you for your help!
 
 A few steps to take before we get going...
 
-1. Obtain a copy of `ytt` built for this session (your guide will provide this for you).
+1. Obtain a copy of `ytt` built for this session: https://github.com/k14s/ytt-schema-v1-preview/releases/tag/0.35.0-preview
 
 2. Ensure that this copy of `ytt` is on your path (it's 0.35.0-preview)
    ```console
