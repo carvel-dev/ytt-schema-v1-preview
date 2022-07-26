@@ -1,0 +1,18 @@
+---
+name: Add issues to project
+
+on:
+  issues:
+    types: ['opened']
+  pull_request:
+    types: ['opened']
+
+jobs:
+  add-to-project:
+    name: Add issue to project
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/add-to-project@v0.3.0
+        with:
+          project-url: https://github.com/orgs/k14s/projects/1/views/1
+          github-token: ${{ secrets.AHURLEY_PAT }}
